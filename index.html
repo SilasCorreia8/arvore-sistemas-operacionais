@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Árvore dos SOs</title>
+  <meta name="description" content="A origem e a árvore genealógica dos sistemas operacionais: da linhagem MS-DOS/Windows à linhagem UNIX (BSD, Apple e Linux).">
+  <link rel="stylesheet" href="style.css">
+  <script>document.documentElement.classList.add('js');</script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#topo" aria-label="Árvore dos SOs, voltar ao topo">
+        <svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="8" y="2" width="8" height="5" rx="1.5"/>
+          <rect x="1" y="17" width="8" height="5" rx="2.5"/>
+          <rect x="15" y="17" width="8" height="5" rx="2.5"/>
+          <path d="M12 7v5M5 17v-5h14v5" fill="none" stroke-width="2"/>
+        </svg>
+        Árvore dos SOs
+      </a>
+      <nav class="site-nav" aria-label="Seções">
+        <a href="#origem">Origem</a>
+        <a href="#kernel">Kernel × SO</a>
+        <a href="#arvore">Árvore</a>
+        <a href="#familias">Famílias</a>
+        <a href="#linha-do-tempo">Linha do tempo</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="topo">
+
+    <!-- 1. Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="eyebrow">História da computação</p>
+          <h1>A <span class="gradient-text">Árvore Genealógica</span> dos Sistemas Operacionais</h1>
+          <p class="lead">
+            Do computador que ocupava uma sala inteira ao celular no seu bolso: veja como
+            kernels e sistemas operacionais nasceram uns dos outros, formando duas grandes
+            linhagens, a do <strong>MS-DOS</strong> e a do <strong>UNIX</strong>.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#arvore">Ver a árvore</a>
+            <a class="btn btn-ghost" href="#linha-do-tempo">Linha do tempo</a>
+          </div>
+          <dl class="stats">
+            <div><dt>Kernels</dt><dd data-stat="kernels">7</dd></div>
+            <div><dt>Sistemas operacionais</dt><dd data-stat="so">19</dd></div>
+            <div><dt>Anos de história</dt><dd data-stat="span">1969–2021</dd></div>
+          </dl>
+        </div>
+
+        <aside class="hero-card reveal" aria-label="As duas raízes da árvore">
+          <p class="hero-card-title">Duas raízes</p>
+          <button class="root-item" data-family="unix" data-open="unix">
+            <span class="root-year">1969</span>
+            <span class="root-body">
+              <strong>UNIX</strong>
+              <span>Kernel dos Laboratórios Bell. Pai do BSD, do Mach e do Linux.</span>
+            </span>
+          </button>
+          <button class="root-item" data-family="microsoft" data-open="msdos">
+            <span class="root-year">1981</span>
+            <span class="root-body">
+              <strong>MS-DOS</strong>
+              <span>O primeiro SO da Microsoft, ponto de partida de toda a família Windows.</span>
+            </span>
+          </button>
+          <p class="hero-card-hint">Clique em qualquer item para ver os detalhes.</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- 2. Antes dos SOs -->
+    <section id="origem" class="section-alt">
+      <div class="container two-col">
+        <div class="section-head reveal">
+          <p class="eyebrow">Antes de tudo</p>
+          <h2>Quando o operador era o sistema operacional</h2>
+          <p>
+            Na <strong>primeira geração de computadores</strong>, nos anos <strong>1950</strong>,
+            o computador ocupava uma sala inteira, com quilômetros de fios. Não existia
+            sistema operacional: o operador tinha que ligar e desligar chaves, trocar painéis
+            e esperar as luzes de aviso para o computador funcionar.
+          </p>
+          <p>
+            Com o tempo, essas tarefas repetitivas passaram a ser feitas por software, e
+            esse software virou o que hoje chamamos de <strong>sistema operacional</strong>:
+            o programa que gerencia a máquina para que as pessoas e os outros programas
+            não precisem fazer isso à mão.
+          </p>
+        </div>
+
+        <ol class="steps reveal">
+          <li>
+            <span class="step-year">Anos 1950</span>
+            <strong>Tudo manual</strong>
+            <span>Chaves, painéis e luzes. Um programa por vez, controlado pelo operador.</span>
+          </li>
+          <li>
+            <span class="step-year">Anos 1960</span>
+            <strong>Automação</strong>
+            <span>Programas começam a encadear tarefas e a dividir o computador entre vários usuários.</span>
+          </li>
+          <li>
+            <span class="step-year">1969</span>
+            <strong>Nasce o UNIX</strong>
+            <span>Um kernel simples e portátil que vira a raiz de quase todos os SOs modernos.</span>
+          </li>
+          <li>
+            <span class="step-year">1981</span>
+            <strong>Chega o MS-DOS</strong>
+            <span>O SO dos computadores pessoais da IBM, de onde nasce a família Windows.</span>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 3. Kernel x SO -->
+    <section id="kernel">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Conceito-chave</p>
+          <h2>Kernel × Sistema Operacional</h2>
+          <p class="lead">
+            A árvore mistura dois tipos de “parentes”. Entender a diferença é o que faz a
+            árvore fazer sentido.
+          </p>
+        </div>
+
+        <div class="concept-grid">
+          <article class="concept-card reveal">
+            <span class="legend-shape legend-kernel concept-shape" aria-hidden="true"></span>
+            <h3>Kernel</h3>
+            <p>
+              É o <strong>núcleo</strong>, a parte que conversa direto com o hardware. Decide
+              quem usa o processador, organiza a memória e controla os dispositivos
+              (disco, teclado, rede). O usuário quase nunca o vê.
+            </p>
+          </article>
+          <article class="concept-card reveal">
+            <span class="legend-shape legend-so concept-shape" aria-hidden="true"></span>
+            <h3>Sistema Operacional</h3>
+            <p>
+              É o <strong>kernel mais tudo o que vem em volta</strong>: interface,
+              programas, utilitários e configurações. É o que a gente instala e usa no dia
+              a dia: Windows, macOS, Ubuntu, Android…
+            </p>
+          </article>
+          <article class="concept-card concept-card--analogy reveal">
+            <h3>Uma analogia</h3>
+            <p>
+              Pense num carro: o <strong>kernel é o motor</strong> e o
+              <strong>SO é o carro inteiro</strong>. Vários carros diferentes podem usar o
+              mesmo motor. É por isso que Android e Ubuntu, tão diferentes, compartilham o
+              kernel Linux.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. A Árvore -->
+    <section id="arvore" class="section-alt">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">A árvore genealógica</p>
+          <h2>Quem nasceu de quem</h2>
+          <p class="lead">
+            Cada seta significa “é baseado em”. Clique em um item para ler a história
+            dele, ou filtre por família.
+          </p>
+        </div>
+
+        <div class="tree-toolbar reveal">
+          <div class="filters" role="group" aria-label="Filtrar por família">
+            <button class="filter" data-filter="all" aria-pressed="true">Todas</button>
+            <button class="filter" data-filter="microsoft" data-family="microsoft" aria-pressed="false">Microsoft</button>
+            <button class="filter" data-filter="bsd" data-family="bsd" aria-pressed="false">BSD</button>
+            <button class="filter" data-filter="apple" data-family="apple" aria-pressed="false">Apple</button>
+            <button class="filter" data-filter="linux" data-family="linux" aria-pressed="false">Linux</button>
+          </div>
+
+          <ul class="legend" aria-label="Legenda">
+            <li><span class="legend-shape legend-kernel" aria-hidden="true"></span>Kernel</li>
+            <li><span class="legend-shape legend-so" aria-hidden="true"></span>Sistema operacional</li>
+            <li><span class="legend-line" aria-hidden="true"></span>é baseado em</li>
+            <li><span class="legend-line legend-line--dashed" aria-hidden="true"></span>também herda de</li>
+          </ul>
+        </div>
+
+        <div class="tree-panels">
+          <article class="tree-panel reveal" data-family="microsoft">
+            <header class="tree-panel-head">
+              <h3>Linhagem MS-DOS</h3>
+              <p>Microsoft · do DOS ao Windows 11</p>
+            </header>
+            <div class="tree-scroll">
+              <div class="tree" data-tree-root="msdos"></div>
+            </div>
+          </article>
+
+          <article class="tree-panel reveal" data-family="unix">
+            <header class="tree-panel-head">
+              <h3>Linhagem UNIX</h3>
+              <p>Mach/Apple, BSD e Linux</p>
+            </header>
+            <div class="tree-scroll">
+              <div class="tree" data-tree-root="unix"></div>
+            </div>
+            <aside class="callout" data-family="apple">
+              <strong>Por que o XNU tem dois pais?</strong>
+              O <strong>XNU</strong> combina a arquitetura do microkernel <strong>Mach</strong>
+              com elementos do <strong>BSD</strong>: o Mach cuida da memória e dos processos,
+              e o BSD traz rede, sistema de arquivos e as permissões no estilo UNIX.
+            </aside>
+          </article>
+        </div>
+
+        <noscript>
+          <p class="callout">Ative o JavaScript para ver a árvore interativa.</p>
+        </noscript>
+      </div>
+    </section>
+
+    <!-- 5. Famílias -->
+    <section id="familias">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">As famílias</p>
+          <h2>Quatro famílias, duas raízes</h2>
+          <p class="lead">
+            A família Microsoft descende do MS-DOS. As outras três (BSD, Apple e Linux)
+            descendem do UNIX.
+          </p>
+        </div>
+
+        <div class="family-grid">
+          <article class="family-card reveal" data-family="microsoft">
+            <p class="family-root">Raiz: MS-DOS</p>
+            <h3>Microsoft</h3>
+            <p>
+              Do MS-DOS em linha de comando ao Windows 11. Primeiro veio o kernel
+              <strong>9.x</strong>, que ainda dependia do DOS (Windows 95 e 98). Depois, o kernel
+              <strong>NT</strong>, robusto e moderno, usado do XP em diante.
+            </p>
+            <ul class="chips" data-family-list="microsoft"></ul>
+          </article>
+
+          <article class="family-card reveal" data-family="bsd">
+            <p class="family-root">Raiz: UNIX</p>
+            <h3>BSD</h3>
+            <p>
+              O “UNIX de Berkeley”. Ramo acadêmico do UNIX que deu origem a sistemas livres
+              como FreeBSD e OpenBSD, e que emprestou partes importantes para a Apple.
+            </p>
+            <ul class="chips" data-family-list="bsd"></ul>
+          </article>
+
+          <article class="family-card reveal" data-family="apple">
+            <p class="family-root">Raiz: UNIX</p>
+            <h3>Apple</h3>
+            <p>
+              O microkernel Mach somado ao BSD formou o XNU. Sobre ele está o Darwin, que
+              por sua vez é a base do macOS e do iOS.
+            </p>
+            <ul class="chips" data-family-list="apple"></ul>
+          </article>
+
+          <article class="family-card reveal" data-family="linux">
+            <p class="family-root">Raiz: UNIX</p>
+            <h3>Linux</h3>
+            <p>
+              Um kernel livre criado por Linus Torvalds em 1991. Sobre ele nasceram as
+              “distribuições” (Debian, Ubuntu, Linux Mint) e até o Android.
+            </p>
+            <ul class="chips" data-family-list="linux"></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Linha do tempo -->
+    <section id="linha-do-tempo" class="section-alt">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Linha do tempo</p>
+          <h2>De 1969 a 2021</h2>
+          <p class="lead">Todos os kernels e SOs da árvore em ordem cronológica.</p>
+        </div>
+        <div class="timeline" id="timeline"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 7. Rodapé -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Árvore dos SOs</strong>
+        <p>Página de estudo sobre a origem e a árvore genealógica dos sistemas operacionais.</p>
+      </div>
+      <div>
+        <strong>Fontes</strong>
+        <ul>
+          <li>Material de estudo “Árvore dos SOs” (PDF)</li>
+          <li><a href="https://www.linuxpro.com.br/2017/06/a-historia-dos-sistemas-operacionais/" target="_blank" rel="noopener">LinuxPro: A história dos sistemas operacionais</a></li>
+          <li><a href="https://www.reddit.com/r/coolguides/comments/k1lopj/os_family_tree/?tl=pt-br" target="_blank" rel="noopener">r/coolguides: OS Family Tree (diagrama de referência)</a></li>
+        </ul>
+      </div>
+      <div>
+        <strong>Vídeos</strong>
+        <ul>
+          <li><a href="https://www.youtube.com/watch?v=Z3dOsurvJAI" target="_blank" rel="noopener">História dos Sistemas Operacionais</a> (Muito Mais que Tecnologia)</li>
+          <li><a href="https://www.youtube.com/watch?v=9rC9GilX1Io" target="_blank" rel="noopener">História dos Sistemas Operacionais</a> (Enryson Ferraz)</li>
+          <li><a href="https://www.youtube.com/watch?v=nMj_lsWuF4A" target="_blank" rel="noopener">Como Surgiu os Sistemas Operacionais</a> (Conhecimento Geral)</li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Painel de detalhes (preenchido pelo script.js) -->
+  <dialog class="dialog" id="node-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-inner">
+      <form method="dialog">
+        <button class="dialog-close" aria-label="Fechar">×</button>
+      </form>
+      <div class="dialog-chips">
+        <span class="chip chip--fam" data-d="family"></span>
+        <span class="chip" data-d="type"></span>
+      </div>
+      <h3 id="dialog-title" data-d="name"></h3>
+      <p class="dialog-year" data-d="year"></p>
+      <p class="dialog-desc" data-d="desc"></p>
+      <div class="dialog-rel">
+        <h4>Baseado em</h4>
+        <div class="rel-list" data-d="parents"></div>
+      </div>
+      <div class="dialog-rel">
+        <h4>Deu origem a</h4>
+        <div class="rel-list" data-d="children"></div>
+      </div>
+    </div>
+  </dialog>
+
+</body>
+</html>
