@@ -354,6 +354,29 @@ section {
   border-color: color-mix(in srgb, var(--accent) 25%, var(--border));
 }
 
+/* Tipos de kernel */
+.subhead {
+  margin: 48px 0 20px;
+  font-size: 1.35rem;
+}
+
+.kernel-type-tag {
+  margin-bottom: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.concept-card .kernel-examples {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font-size: 0.88rem;
+  color: var(--text);
+}
+
 @media (max-width: 900px) {
   .concept-grid { grid-template-columns: 1fr; }
 }
@@ -814,8 +837,10 @@ section {
 
 /* ---------- Painel de detalhes ---------- */
 .dialog {
-  width: min(480px, 100% - 32px);
+  width: min(580px, 100% - 32px);
   max-height: calc(100% - 32px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
   padding: 0;
   border: 0;
   border-radius: 20px;
@@ -834,10 +859,18 @@ section {
   border-top: 6px solid var(--fam);
 }
 
+/* O botão de fechar acompanha a rolagem do painel */
+.dialog-inner > form {
+  position: sticky;
+  top: 28px;
+  z-index: 2;
+  height: 0;
+}
+
 .dialog-close {
   position: absolute;
-  top: 14px;
-  right: 14px;
+  top: -14px;
+  right: -14px;
   width: 36px;
   height: 36px;
   border: 0;
@@ -865,7 +898,7 @@ section {
 
 .dialog h3 { font-size: 1.6rem; }
 .dialog-year {
-  margin: 2px 0 14px;
+  margin: 2px 0 0;
   font-weight: 700;
   color: var(--fam);
   font-variant-numeric: tabular-nums;
@@ -899,6 +932,68 @@ section {
 .rel-btn:hover { background: color-mix(in srgb, var(--fam) 18%, var(--surface)); }
 
 .rel-empty { margin: 0; font-size: 0.9rem; color: var(--muted); font-style: italic; }
+
+/* Ficha técnica */
+.spec-list {
+  margin: 0;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.spec-row {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 4px 16px;
+  padding: 12px 14px;
+  font-size: 0.9rem;
+}
+.spec-row + .spec-row { border-top: 1px solid var(--border); }
+.spec-row:nth-child(odd) { background: var(--bg-alt); }
+
+.spec-row dt {
+  font-weight: 700;
+  color: var(--text);
+}
+.spec-hint {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.spec-row dd {
+  margin: 0;
+  color: var(--muted);
+}
+.spec-row dd strong { color: var(--text); }
+
+.spec-badge {
+  display: inline-block;
+  margin-right: 4px;
+  padding: 1px 9px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  vertical-align: 1px;
+}
+.spec-badge--sim     { color: #4ade80; background: rgb(74 222 128 / 0.14); }
+.spec-badge--nao     { color: #f87171; background: rgb(248 113 113 / 0.14); }
+.spec-badge--parcial { color: #fbbf24; background: rgb(251 191 36 / 0.14); }
+
+@media (max-width: 520px) {
+  .spec-row { grid-template-columns: 1fr; }
+}
+
+/* Referências */
+.ref-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.88rem;
+}
+.ref-list li + li { margin-top: 6px; }
+.ref-list a { color: var(--accent); overflow-wrap: anywhere; }
 
 /* ---------- Rodapé ---------- */
 .site-footer {
@@ -940,3 +1035,27 @@ section {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; }
 }
+
+/* ---------- Guia da ficha técnica e glossário ---------- */
+.subhead-lead {
+  max-width: 720px;
+  margin: -8px 0 20px;
+  color: var(--muted);
+}
+
+.spec-guide { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+
+.glossary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px;
+  margin: 0;
+}
+.glossary > div {
+  padding: 16px 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.glossary dt { font-weight: 700; margin-bottom: 4px; }
+.glossary dd { margin: 0; color: var(--muted); font-size: 0.95rem; }

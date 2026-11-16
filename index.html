@@ -25,7 +25,7 @@
       </a>
       <nav class="site-nav" aria-label="Seções">
         <a href="#origem">Origem</a>
-        <a href="#kernel">Kernel × SO</a>
+        <a href="#kernel">Conceitos</a>
         <a href="#arvore">Árvore</a>
         <a href="#familias">Famílias</a>
         <a href="#linha-do-tempo">Linha do tempo</a>
@@ -70,7 +70,7 @@
             <span class="root-year">1981</span>
             <span class="root-body">
               <strong>MS-DOS</strong>
-              <span>O primeiro SO da Microsoft, ponto de partida de toda a família Windows.</span>
+              <span>O sistema dos primeiros PCs da IBM, ponto de partida de toda a família Windows.</span>
             </span>
           </button>
           <p class="hero-card-hint">Clique em qualquer item para ver os detalhes.</p>
@@ -107,17 +107,17 @@
           <li>
             <span class="step-year">Anos 1960</span>
             <strong>Automação</strong>
-            <span>Programas começam a encadear tarefas e a dividir o computador entre vários usuários.</span>
+            <span>Programas passam a fazer as tarefas em sequência sozinhos e a dividir o computador entre várias pessoas.</span>
           </li>
           <li>
             <span class="step-year">1969</span>
             <strong>Nasce o UNIX</strong>
-            <span>Um kernel simples e portátil que vira a raiz de quase todos os SOs modernos.</span>
+            <span>Um sistema simples, que podia ser levado para outros computadores. Vira a raiz de quase todos os SOs modernos.</span>
           </li>
           <li>
             <span class="step-year">1981</span>
             <strong>Chega o MS-DOS</strong>
-            <span>O SO dos computadores pessoais da IBM, de onde nasce a família Windows.</span>
+            <span>O sistema dos computadores pessoais (PCs) da IBM, de onde nasce a família Windows.</span>
           </li>
         </ol>
       </div>
@@ -127,7 +127,7 @@
     <section id="kernel">
       <div class="container">
         <div class="section-head reveal">
-          <p class="eyebrow">Conceito-chave</p>
+          <p class="eyebrow">Conceitos-chave</p>
           <h2>Kernel × Sistema Operacional</h2>
           <p class="lead">
             A árvore mistura dois tipos de “parentes”. Entender a diferença é o que faz a
@@ -140,9 +140,10 @@
             <span class="legend-shape legend-kernel concept-shape" aria-hidden="true"></span>
             <h3>Kernel</h3>
             <p>
-              É o <strong>núcleo</strong>, a parte que conversa direto com o hardware. Decide
-              quem usa o processador, organiza a memória e controla os dispositivos
-              (disco, teclado, rede). O usuário quase nunca o vê.
+              É o <strong>núcleo</strong>, a parte que conversa direto com o hardware (as peças
+              físicas do computador). Decide qual programa usa o processador em cada momento,
+              organiza a memória e controla os dispositivos (disco, teclado, rede). O usuário
+              quase nunca o vê.
             </p>
           </article>
           <article class="concept-card reveal">
@@ -164,6 +165,111 @@
             </p>
           </article>
         </div>
+
+        <h3 class="subhead reveal">Os três tipos de kernel</h3>
+        <div class="concept-grid kernel-types">
+          <article class="concept-card reveal">
+            <p class="kernel-type-tag">Tudo junto</p>
+            <h3>Monolítico</h3>
+            <p>
+              Todo o núcleo (drivers, sistema de arquivos, rede) roda como <strong>um único
+              programa</strong> com acesso total à máquina. É rápido, mas uma peça com
+              defeito pode derrubar o sistema inteiro.
+            </p>
+            <p class="kernel-examples">Exemplos: UNIX, BSD, Linux, MS-DOS, Windows 9.x</p>
+          </article>
+          <article class="concept-card reveal">
+            <p class="kernel-type-tag">O mínimo no núcleo</p>
+            <h3>Microkernel</h3>
+            <p>
+              O núcleo faz <strong>só o essencial</strong> (memória, programas em execução e
+              comunicação entre eles). O resto roda como programas separados, então uma falha
+              num deles não derruba tudo. Mas eles precisam trocar mensagens o tempo todo, o
+              que deixa o sistema mais lento.
+            </p>
+            <p class="kernel-examples">Exemplo: Mach</p>
+          </article>
+          <article class="concept-card reveal">
+            <p class="kernel-type-tag">Meio-termo</p>
+            <h3>Híbrido (misto)</h3>
+            <p>
+              Começa com o <strong>desenho de um microkernel</strong>, mas coloca várias partes
+              de volta dentro do núcleo para ganhar velocidade. Tenta juntar a organização de um
+              com a rapidez do outro.
+            </p>
+            <p class="kernel-examples">Exemplos: Windows NT (XP ao 11), XNU (macOS e iOS)</p>
+          </article>
+        </div>
+
+        <h3 class="subhead reveal">Como ler a ficha técnica</h3>
+        <p class="subhead-lead reveal">
+          Ao clicar em um item da árvore, abre uma ficha com cinco características. Veja o que
+          cada uma quer dizer:
+        </p>
+        <div class="concept-grid spec-guide">
+          <article class="concept-card reveal">
+            <h3>Multiusuário</h3>
+            <p>
+              <strong>Várias pessoas usando o mesmo sistema ao mesmo tempo</strong>, cada uma
+              na sua sessão, por exemplo conectadas pela rede. Ter várias contas no mesmo PC não
+              basta: se só uma pessoa usa por vez, ele não é multiusuário.
+            </p>
+            <p class="kernel-examples">Sim: UNIX, Linux, Windows Server · Não: MS-DOS, Windows 11</p>
+          </article>
+          <article class="concept-card reveal">
+            <h3>Multiprocessado</h3>
+            <p>
+              O sistema consegue <strong>dividir o trabalho entre vários processadores ou
+              núcleos</strong>. O processador é o “cérebro” do computador; um núcleo é como um
+              cérebro dentro dele. Mais núcleos, mais tarefas feitas ao mesmo tempo.
+            </p>
+            <p class="kernel-examples">Sim: Linux, macOS, Windows XP ao 11 · Não: MS-DOS, Windows 95</p>
+          </article>
+          <article class="concept-card reveal">
+            <h3>Tipo de kernel</h3>
+            <p>
+              Como o núcleo é organizado: <strong>monolítico</strong>, <strong>microkernel</strong>
+              ou <strong>híbrido</strong> (misto). Os três tipos estão explicados logo acima.
+            </p>
+          </article>
+          <article class="concept-card reveal">
+            <h3>Sistema de arquivos</h3>
+            <p>
+              É o <strong>jeito de organizar e guardar os arquivos no disco</strong>, como o
+              sistema de uma biblioteca para saber onde está cada livro. Define, por exemplo, o
+              tamanho máximo de um arquivo e quem pode abri-lo.
+            </p>
+            <p class="kernel-examples">Exemplos: FAT (MS-DOS), NTFS (Windows), ext4 (Linux), APFS (Apple)</p>
+          </article>
+          <article class="concept-card reveal">
+            <h3>Compartilhamento de arquivos</h3>
+            <p>
+              As formas de <strong>passar arquivos para outras pessoas e computadores</strong>:
+              pastas compartilhadas na rede, envio sem fio entre aparelhos ou a nuvem
+              (arquivos guardados em servidores na internet).
+            </p>
+            <p class="kernel-examples">Exemplos: SMB (Windows), NFS (UNIX e Linux), AirDrop (Apple)</p>
+          </article>
+        </div>
+
+        <h3 class="subhead reveal">Pequeno glossário</h3>
+        <dl class="glossary reveal">
+          <div><dt>Hardware</dt><dd>As peças físicas do computador: processador, memória, disco, teclado, tela.</dd></div>
+          <div><dt>Software</dt><dd>Os programas, ou seja, as instruções que dizem ao hardware o que fazer.</dd></div>
+          <div><dt>Processador e núcleo</dt><dd>O processador é o “cérebro” que faz as contas. Os processadores atuais têm vários núcleos, que trabalham ao mesmo tempo.</dd></div>
+          <div><dt>Driver</dt><dd>Programa que ensina o sistema a usar uma peça de hardware, como uma impressora ou uma placa de vídeo.</dd></div>
+          <div><dt>Linha de comando</dt><dd>Jeito de usar o computador digitando comandos numa tela de texto, sem janelas nem mouse.</dd></div>
+          <div><dt>Interface gráfica</dt><dd>Jeito de usar o computador com janelas, ícones e mouse ou toque.</dd></div>
+          <div><dt>Terminal</dt><dd>Tela e teclado usados para dar comandos a um computador, perto dele ou pela rede.</dd></div>
+          <div><dt>SSH</dt><dd>Forma segura de acessar outro computador pela rede e usar o terminal dele.</dd></div>
+          <div><dt>Rede local</dt><dd>Os computadores ligados entre si numa casa, escola ou escritório.</dd></div>
+          <div><dt>SMB e Samba</dt><dd>O SMB é a “língua” que o Windows usa para compartilhar pastas e impressoras na rede. O Samba é o programa que ensina essa língua ao Linux e a outros sistemas.</dd></div>
+          <div><dt>NFS</dt><dd>Forma de abrir uma pasta de outro computador como se ela estivesse no seu. Muito usado no UNIX e no Linux.</dd></div>
+          <div><dt>32 bits e 16 bits</dt><dd>Quanto maior o número de bits, mais memória o sistema consegue usar e mais rápido ele trabalha com números grandes.</dd></div>
+          <div><dt>Código aberto e software livre</dt><dd>Programas cujo código pode ser lido por qualquer pessoa. O software livre vai além: também pode ser alterado e distribuído.</dd></div>
+          <div><dt>Distribuição Linux</dt><dd>Um sistema completo montado em cima do kernel Linux, com programas, interface e instalador. Exemplos: Debian, Ubuntu e Linux Mint.</dd></div>
+          <div><dt>Nuvem</dt><dd>Arquivos e programas guardados em servidores na internet, que podem ser acessados de qualquer lugar.</dd></div>
+        </dl>
       </div>
     </section>
 
@@ -174,8 +280,8 @@
           <p class="eyebrow">A árvore genealógica</p>
           <h2>Quem nasceu de quem</h2>
           <p class="lead">
-            Cada seta significa “é baseado em”. Clique em um item para ler a história
-            dele, ou filtre por família.
+            Cada seta significa “é baseado em”. Clique em um item para ver como ele
+            surgiu e a ficha técnica dele, ou filtre por família.
           </p>
         </div>
 
@@ -247,9 +353,9 @@
             <p class="family-root">Raiz: MS-DOS</p>
             <h3>Microsoft</h3>
             <p>
-              Do MS-DOS em linha de comando ao Windows 11. Primeiro veio o kernel
+              Do MS-DOS, usado digitando comandos, ao Windows 11. Primeiro veio o kernel
               <strong>9.x</strong>, que ainda dependia do DOS (Windows 95 e 98). Depois, o kernel
-              <strong>NT</strong>, robusto e moderno, usado do XP em diante.
+              <strong>NT</strong>, mais estável e seguro, usado do XP em diante.
             </p>
             <ul class="chips" data-family-list="microsoft"></ul>
           </article>
@@ -258,8 +364,8 @@
             <p class="family-root">Raiz: UNIX</p>
             <h3>BSD</h3>
             <p>
-              O “UNIX de Berkeley”. Ramo acadêmico do UNIX que deu origem a sistemas livres
-              como FreeBSD e OpenBSD, e que emprestou partes importantes para a Apple.
+              O “UNIX de Berkeley”. Versão do UNIX feita numa universidade, que deu origem a
+              sistemas livres como FreeBSD e OpenBSD e emprestou partes importantes para a Apple.
             </p>
             <ul class="chips" data-family-list="bsd"></ul>
           </article>
@@ -314,6 +420,7 @@
           <li>Material de estudo “Árvore dos SOs” (PDF)</li>
           <li><a href="https://www.linuxpro.com.br/2017/06/a-historia-dos-sistemas-operacionais/" target="_blank" rel="noopener">LinuxPro: A história dos sistemas operacionais</a></li>
           <li><a href="https://www.reddit.com/r/coolguides/comments/k1lopj/os_family_tree/?tl=pt-br" target="_blank" rel="noopener">r/coolguides: OS Family Tree (diagrama de referência)</a></li>
+          <li>Fichas técnicas: documentação oficial de cada sistema (links no painel de cada item)</li>
         </ul>
       </div>
       <div>
@@ -339,14 +446,25 @@
       </div>
       <h3 id="dialog-title" data-d="name"></h3>
       <p class="dialog-year" data-d="year"></p>
-      <p class="dialog-desc" data-d="desc"></p>
       <div class="dialog-rel">
-        <h4>Baseado em</h4>
+        <h4>Herdado de</h4>
         <div class="rel-list" data-d="parents"></div>
+      </div>
+      <div class="dialog-rel">
+        <h4>Como surgiu</h4>
+        <p class="dialog-desc" data-d="desc"></p>
+      </div>
+      <div class="dialog-rel">
+        <h4>Ficha técnica</h4>
+        <dl class="spec-list" data-d="specs"></dl>
       </div>
       <div class="dialog-rel">
         <h4>Deu origem a</h4>
         <div class="rel-list" data-d="children"></div>
+      </div>
+      <div class="dialog-rel">
+        <h4>Referências</h4>
+        <ul class="ref-list" data-d="refs"></ul>
       </div>
     </div>
   </dialog>
